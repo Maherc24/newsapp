@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../news.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -8,12 +9,15 @@ import { NewsService } from '../news.service';
 })
 export class NewsPage implements OnInit {
 data: any;
-  constructor(private newsService: NewsService) { }
+  constructor(private newsService: NewsService, private router: Router) { }
 
   ngOnInit() {
 
     this.newsService.getData('top-headlines?country=ie&category=technology').subscribe(data => { console.log(data);
     this.data = data;});
   }
-
+  onGoToNewsSinglePage(articles: any){
+this.newsService.currentArticle = articles;
+this.router.navigate(['/news-single']);
+  }
 }

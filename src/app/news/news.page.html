@@ -13,13 +13,13 @@
       <ion-title size="large">News</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-card *ngFor="let articles of data?.articles">
-<ion-img [src]="article.urlToImage"></ion-img>
+  <ion-card *ngFor="let articles of data?.articles" (click)="onGoToNewsSinglePage(articles)">
+<ion-img [src]="articles.urlToImage"></ion-img>
 <ion-card-content>
 
-  <ion-card-title>{{article.title}}</ion-card-title>
+  <ion-card-title>{{articles.title}}</ion-card-title>
 
-<p>{{article.description}}</p>
+<p>{{articles.description}}</p>
 </ion-card-content>
   </ion-card>
 

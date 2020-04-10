@@ -13,6 +13,7 @@ const API_KEY = environment.apiKey;
 
 
 export class NewsService {
+  currentArticle: any;
 
   constructor(private http: HttpClient) { }
 
